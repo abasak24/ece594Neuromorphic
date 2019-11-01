@@ -1,8 +1,8 @@
 # ece594Neuromorphic
-Course Project
+Scalable Graph Processing on Neuromorphic Hardware
 
 ## Project Proposal (due Nov 14):
-* Abanti opened an overleaf latex repo and here is the editable link:https://www.overleaf.com/3789364254dhcjnxgschrx
+* Abanti opened an overleaf latex repo and here is the editable link: https://www.overleaf.com/3789364254dhcjnxgschrx
 * Abanti will take care of writing the project proposal and ask for help from others for editing, reviewing, writing any specific section, and any suggestions for change. 
 
 ## Running CPU baseline
