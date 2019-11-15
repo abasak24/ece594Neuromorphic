@@ -12,12 +12,10 @@ Graph Processing on Neuromorphic Hardware
 * Abanti and Shreyansh will start to work on it. 
 
 ## FPGA simulation:
-Kenny will work on it. 
+* Kenny will work on it. 
 
-## Final Report and Slides 
+## Final Report and Slides (Due Dec 3)
 
-## Running CPU baseline (may be not needed anymore)
-* Abanti will run CPU baseline: optimized graph algorithms on some datasets. 
 
 ## Related papers: 
 1) https://sc18.supercomputing.org/proceedings/workshops/workshop_files/ws_pmes104s1-file1.pdf
