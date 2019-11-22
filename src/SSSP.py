@@ -1,6 +1,6 @@
 # GOAL: read an input file, parse vertices and edges; build the appropriate network of neurons; set correct parameters for neurons and synapses; perform SSSP 
 # Requires 2 parameters to run this code: 1) input edge file and 2) the total number of nodes in the graph
-# Example: python sssp.py ../datasets/ultraSmallKroneckerWeighted.txt 4 
+# Example: python SSSP.py ../datasets/ultraSmallKroneckerWeighted.txt 4 
 from brian2 import *
 
 # function taken from brian tutorial 
