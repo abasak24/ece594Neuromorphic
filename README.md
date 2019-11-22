@@ -1,21 +1,23 @@
 # ece594Neuromorphic
 Graph Processing on Neuromorphic Hardware
 
-## Project Proposal (due Nov 14):
-* Abanti opened an overleaf latex repo and here is the editable link: https://www.overleaf.com/3789364254dhcjnxgschrx
-* Abanti will take care of writing the project proposal and ask for help from others for editing, reviewing, writing any specific section, and any suggestions for change. 
+## Final Project Report and Slides (Due Dec 3)
+* Report -> Abanti created overleaf with editable link: https://www.overleaf.com/4985316468bznhwzwftyjk
+* Slides -> Abanti created Google slides and sent invitations to team mates. 
 
 ## Dataset creation
-* Abanti created a dataset folder with small synthetic datasets 
+* Abanti created a dataset folder with small synthetic datasets. 
 
 ## Brian python simulation:
-* Abanti and Shreyansh will start to work on it. 
+* Abanti wrote and tested neuromorphic SSSP on a small graph. 
+* Another teammate will write a baseline CPU SSSP to produce reference outputs for checking correctness of neuromorphic SSSP.
 
 ## FPGA simulation:
 * Kenny will work on it. 
 
-## Final Report and Slides (Due Dec 3)
-
+## Project Proposal (due Nov 14) (DONE):
+* Abanti opened an overleaf latex repo and here is the editable link: https://www.overleaf.com/3789364254dhcjnxgschrx
+* Abanti will take care of writing the project proposal and ask for help from others for editing, reviewing, writing any specific section, and any suggestions for change. 
 
 ## Related papers: 
 1) https://sc18.supercomputing.org/proceedings/workshops/workshop_files/ws_pmes104s1-file1.pdf
