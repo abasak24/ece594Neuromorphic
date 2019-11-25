@@ -25,9 +25,23 @@ def visualize_connectivity(S):
     ylabel('Target neuron index')
     show()
 
+# prints the shortest path for a node
+def printPath(node, source, numNodes, parentArray):
+    if(source == 0):
+        root = numNodes + 1
+    else:
+        root = source
+
+    print (str(node) + ':')
+    while(not (node == (root))):
+        print int(parentArray[node])
+        node = int(parentArray[node])
+    print ('Source = ' + str(source))
+
 eqs = '''
 v : 1
 ref : second
+parent : 1
 '''
 inputFileName = sys.argv[1] # input graph file in .txt format 
 numNodes = int(sys.argv[2]) # number of nodes in the network
@@ -41,11 +55,14 @@ initial_stimulus_value = 0.0001  # stimulus applied to source to start SSSP algo
 
 Vt = 0 # threshold voltage 
 Vr = 0 # reset voltage. Is this correct?? 
-synapseWeight = 1 
+synapseWeight = 1
 
 P = NeuronGroup(numNodes, eqs, threshold='v > Vt', reset='v = Vr', refractory='ref', method='exact') # neuron group with as many neurons as number of vertices in graph
-S = Synapses(P, P, model='''w:1''', on_pre='v_post += w')
+S = Synapses(P, P, model='''w:1''', on_pre='''v_post +=w
+                                              if(parent_post == -1) parent_post = i_pre''')
 P.v['i==source'] = initial_stimulus_value # acts like a stimulus on the source node of SSSP
+P.parent = -1
+print P.parent
 print P.v
 
 fin = open(inputFileName, "r")
@@ -69,8 +86,8 @@ fin.close()
 
 alpha = (sumLength + numEdges + 1)*ms # refractory time  
 P.ref = alpha
-S.w = synapseWeight # synapse weight
 print P.ref
+S.w = synapseWeight
 print S.w
 print S.delay
 
@@ -80,6 +97,11 @@ run(alpha)
 plot(s_mon.t/ms, s_mon.i, "o")
 print s_mon.i
 print s_mon.t
+
+print P.parent
+print (list(P.parent))
+# for k in range(0, numNodes):
+#     printPath(k, source, numNodes, list(P.parent))
 
 xlabel('Time (ms)')
 ylabel('Neuron index')
