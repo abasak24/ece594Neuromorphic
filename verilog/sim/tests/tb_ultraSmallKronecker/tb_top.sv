@@ -30,44 +30,65 @@ module tb_top;
   axis_if #(.N(NN)) axis_out(.*);
   logic tready = 0;
   assign axis_out.tready = tready;
-  
+
   // --------------------------------------------------------------------
   wire select = 0;
   logic [$clog2(T)-1:0] force_spike_block_select = 0;
   logic [$clog2(N)-1:0] force_spike_neuron_select = 0;
   logic time_step = 0;
   logic force_spike_en = 0;
-  
-  project_top dut(.*);
-  
-  // --------------------------------------------------------------------
-  // tb_dut_config #(N, U) cfg_h = new(axis_in, axis_stub);
 
+  project_top dut(.*);
+
+  // --------------------------------------------------------------------
+  task dump_results;
+    automatic string s = "";
+
+    fork
+    begin
+      $display("%s", {80{"="}});
+      $display("[block]:| == neuron == n[0]| n[1]| ...| n[N]| %s", {34{"="}});
+
+      for(int t = 0; t < T; t++) begin
+        for(int n = 0; n < N; n++) begin
+          wait(axis_out.tvalid & axis_out.tready);
+          @(axis_out.cb_m);
+          s = $sformatf("%s|%4.d", s, axis_out.tdata);
+        end
+
+        $display("[%4.d] :%s|", t, s);
+        s = "";
+      end
+    end
+    join_none
+  endtask
+
+  // --------------------------------------------------------------------
   initial
   begin
-    // cfg_h.init( .pixels_per_line(AW)
-              // , .lines_per_frame(AH)
-              // , .bits_per_pixel(B * 8)
-              // );
-    // uvm_config_db #(tb_dut_config #(N, U))::set(null, "*", "tb_dut_config", cfg_h);
-    // run_test("t_debug");
-
     repeat(16) @(posedge clk);
-    
+
+    dump_results();
+
     time_step <= 1;
     force_spike_en <= 1;
-    force_spike_block_select <= 0;
-    // force_spike_neuron_select <= 1;
+    force_spike_block_select  <= 0;
+    force_spike_neuron_select <= 1;
+
+    repeat(ALPHA) @(posedge clk);
+
+    time_step <= 0;
+    force_spike_en <= 0;
+
+    repeat(8) @(posedge clk);
+
     tready <= 1;
-    
-    // repeat(32) @(posedge clk);
     wait(axis_out.tlast);
-    
     @(posedge clk);
     tready <= 0;
-    
-    repeat(16) @(posedge clk);
-    
+
+    repeat(8) @(posedge clk);
+
     $stop;
   end
 

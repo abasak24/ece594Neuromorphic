@@ -25,9 +25,9 @@
 ////                                                              ////
 //////////////////////////////////////////////////////////////////////
 
-module adder_tree #(N, W, D = $clog2(N))
+module adder_tree #(N, W, A = ($clog2(N) > 0) ? $clog2(N) : 1)
   ( input   [W-1:0] data_in[N]
-  , output  [W+D-1:0] data_out
+  , output  [W+A-1:0] data_out
   );
 // --------------------------------------------------------------------
 // synthesis translate_off
@@ -38,7 +38,7 @@ module adder_tree #(N, W, D = $clog2(N))
 // --------------------------------------------------------------------
 
   // --------------------------------------------------------------------
-  localparam H = 2 ** (D - 1); // half of ceil(number of inputs)
+  localparam H = 2 ** (A - 1); // half of ceil(number of inputs)
   localparam R = N - H;        // upper remainder
 
   // --------------------------------------------------------------------
@@ -46,11 +46,11 @@ module adder_tree #(N, W, D = $clog2(N))
     if(N == 1) begin : one
       assign data_out = data_in[0];
     end
-    else if(D == 1) begin : bottom
+    else if(A == 1) begin : bottom
       assign data_out = data_in[1] + data_in[0];
     end
     else begin : branch
-      wire [W+D-2:0] data_out_lo, data_out_hi;
+      wire [W+A-2:0] data_out_lo, data_out_hi;
 
       adder_tree #(.N(H), .W(W)) lo(data_in[0:H-1], data_out_lo);
 
