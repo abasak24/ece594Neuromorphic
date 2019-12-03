@@ -3,7 +3,7 @@
 //  Edges2Verilog
 //
 //  Created by Tarik Tamyurek on 11/29/19.
-//  Copyright Â© 2019 Tarik Tamyurek. All rights reserved.
+//  Copyright © 2019 Tarik Tamyurek. All rights reserved.
 //
 
 #include <iostream>
@@ -18,7 +18,7 @@ using namespace std;
 void addEdge(vector<int> adj[], int u, int v)
 {
 	adj[u].push_back(v);
-	adj[v].push_back(u);
+	//adj[v].push_back(u);
 }
 
 // A utility function to print the adjacency list
@@ -70,15 +70,29 @@ int main(int argc, const char * argv[])
 	}
 
 	ofstream outputFile;
-	outputFile.open("edge2verilog.sv");
+	outputFile.open("snn_network.svh");
+
+	outputFile << "localparam neuron_config_t CFG = '{1, 0, 0, 1, ALPHA};\n" << endl;
+	outputFile << "localparam int S[T][N] = \n'{ '{";
+	for (int i = 0; i < size-1; i++)
+	{
+		if (adj[i].size() == 0) outputFile << "1" << ", ";
+		else outputFile << adj[i].size() << ", ";
+	}
+	int lastNeuronConnSize = adj[size - 1].size() != 0 ? adj[size - 1].size() : 1;
+	outputFile << lastNeuronConnSize << "}};\n" << endl;
 
 	for (int i = 0; i < size; i++)
 	{
 		outputFile << "defparam block[0].nb.neuron[" << i << "].syn.SPIKE = {";
+		if (adj[i].size() == 0)
+		{
+			outputFile << "{" << "0" << ", " << i << "}";
+		}
 		for (int j = 0; j < adj[i].size(); j++)
 		{
-			if (j == adj[i].size() - 1) outputFile << "{" << i << ", " << j << "}";
-			else outputFile << "{" << i << ", " << j << "}, ";
+			if (j == adj[i].size() - 1) outputFile << "{" << "0" << ", " << adj[i][j] << "}";
+			else outputFile << "{" << "0" << ", " << adj[i][j] << "}, ";
 		}
 		outputFile << "};" << endl;
 	}
