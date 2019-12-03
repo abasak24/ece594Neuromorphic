@@ -7,6 +7,7 @@ package snn_pkg;
   // --------------------------------------------------------------------
   localparam N = 2; // neurons per block
   localparam T = 2; // number of blocks
+  localparam TA = $clog2(T) > 0 ? $clog2(T) : 1;
   localparam ALPHA = 4 + 1;
   localparam TS = ALPHA; // number of time steps
   localparam NN = ($clog2(TS + 1) % 8 == 0) // axi4 data width of neuron data

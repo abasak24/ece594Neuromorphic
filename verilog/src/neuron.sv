@@ -19,46 +19,23 @@ module neuron #(S, neuron_config_t CFG)
   localparam AW = VW + $clog2(S); // width of output of adder tree
 
   // --------------------------------------------------------------------
-  wire [VW-1:0] V_d[S-1:0];
+  wire [S-1:0] V_d;
+  wire spike_in = |V_d;
 
   generate
     for(genvar j = 0; j < S; j++)
-     assign V_d[j] = dendrite[j].spike ? dendrite[j].weight : 0;
+     assign V_d[j] = dendrite[j].spike;
   endgenerate
 
   // --------------------------------------------------------------------
-  wire [AW-1:0] data_out;
-  wire signed [AW:0] V_d_total_s = data_out;
-
-  adder_tree #(S, VW) adder_i(V_d, data_out);
-
-  // --------------------------------------------------------------------
-  reg signed [VW:0] V_prev;
-  wire signed [7:0] V_i_s = V_prev + (CFG.K_SYN * V_d_total_s) - CFG.V_LEAK;
-  reg [VW-1:0] V_i;
   wire refractory;
+  wire spike_w = (spike_in & ~refractory) | force_spike ? 1 : 0;
 
-  always_comb
-    if((V_i_s >= CFG.V_0) | refractory)
-      V_i = CFG.V_REST;
-    else if(V_i_s < 0)
-      V_i = 0;
-    else
-      V_i = V_i_s[VW-1:0];
-
-  // --------------------------------------------------------------------
-  wire spike_w = (V_i_s >= CFG.V_0) | force_spike ? 1 : 0;
-
-  always_ff @(posedge clk) begin
-    if(reset) begin
-      V_prev <= CFG.V_REST;
+  always_ff @(posedge clk)
+    if(reset)
       spike  <= 0;
-    end
-    else if(time_step) begin
-      V_prev <= V_i;
+    else if(time_step)
       spike  <= spike_w;
-    end
-  end
 
   // --------------------------------------------------------------------
   reg [$clog2(CFG.RP)-1:0] refractory_counter;
@@ -92,9 +69,29 @@ module neuron #(S, neuron_config_t CFG)
       time_step_counter <= time_step_counter + 1;
 
   // --------------------------------------------------------------------
-  assign axis_out.tvalid = spike_fired;
-  assign axis_out.tdata  = time_step_counter;
+  reg [1:0] time_step_r;
+  wire time_step_fall = (time_step_r == 2'b01);
+
+  always_ff @(posedge clk)
+    if(reset)
+      time_step_r <= 0;
+    else
+      time_step_r <= {time_step, time_step_r[1]};
+
+  // --------------------------------------------------------------------
+  reg time_step_fall_r;
+
+  always_ff @(posedge clk)
+    if(reset)
+      time_step_fall_r <= 0;
+    else if(time_step_fall)
+      time_step_fall_r <= 1;
+
+  // --------------------------------------------------------------------
+  assign axis_out.tvalid = time_step_fall_r;
+  assign axis_out.tdata  = 0;
   assign axis_out.tlast  = 1;
+  assign axis_out.tuser  = time_step_counter;
 
 // --------------------------------------------------------------------
 endmodule

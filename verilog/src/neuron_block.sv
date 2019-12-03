@@ -16,10 +16,10 @@ module neuron_block #(T, N, neuron_config_t CFG, int S[N])
   // --------------------------------------------------------------------
   wire aclk = clk;
   wire aresetn = ~reset;
-  
+
   // --------------------------------------------------------------------
-  axis_if #(.N(NN)) axis_in[N-1:0](.*);
-  
+  axis_if #(.N(NN), .U(NU)) axis_in[N-1:0](.*);
+
   generate
     for(genvar j = 0; j < N; j++) begin : neuron
       synapse_if syn_if[S[j]](.*);
@@ -27,15 +27,15 @@ module neuron_block #(T, N, neuron_config_t CFG, int S[N])
 
       wire spike;
       wire force_spike = force_spike_en & (force_spike_neuron_select == j);
-      
+
       neuron #(S[j], CFG) n(.axis_out(axis_in[j]), .dendrite(syn_if), .*);
 
       assign spike_out[j] = spike;
     end
   endgenerate
-  
+
   // --------------------------------------------------------------------
-  recursive_axis_catenate #(.N(NN), .MN(N)) catenate_i(.*);
+  recursive_axis_catenate #(.N(NN), .U(NU), .MN(N)) catenate_i(.*);
 
 // --------------------------------------------------------------------
 endmodule

@@ -10,9 +10,10 @@ package snn_pkg;
   localparam TA = $clog2(T) > 0 ? $clog2(T) : 1;
   localparam ALPHA = (8*4) + 1;
   localparam TS = ALPHA; // number of time steps
-  localparam NN = ($clog2(TS + 1) % 8 == 0) // axi4 data width of neuron data
-                ? ($clog2(TS + 1) / 8)
-                : ($clog2(TS + 1) / 8) + 1; 
+  localparam NN = (N % 8 == 0) // axi4 tdata width of neuron data
+                ? (N / 8)
+                : (N / 8) + 1; 
+  localparam NU = $clog2(TS + 1); // axi4 tuser width of neuron data
 
   // --------------------------------------------------------------------
   typedef struct {

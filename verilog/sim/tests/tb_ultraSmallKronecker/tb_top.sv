@@ -73,7 +73,7 @@ module tb_top;
     time_step <= 1;
     force_spike_en <= 1;
     force_spike_block_select  <= 0;
-    force_spike_neuron_select <= 1;
+    force_spike_neuron_select <= 0;
 
     repeat(ALPHA) @(posedge clk);
 

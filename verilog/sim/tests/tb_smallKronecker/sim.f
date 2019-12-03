@@ -42,11 +42,5 @@
 -voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[30]/n
 -voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[31]/n
 
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i/branch/lo
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i/branch/lo/branch/lo
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i/branch/lo/branch/genblk1/hi
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i/branch/genblk1/hi
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[10]/n/adder_i/branch/genblk1/hi/branch/lo
-
+-voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/catenate_i
 

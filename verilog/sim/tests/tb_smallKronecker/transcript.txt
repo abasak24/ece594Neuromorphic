@@ -1,0 +1,384 @@
+# transcript.txt
+do ./init_test.do
+# qaz_libs
+# ../../../..
+# ../../..
+# ../../../../qaz_libs
+# fpga
+# hexadecimal
+# INFO: Simulation library work already exists
+# INFO: Rebuilding library. Deleting ./work and recompiling all
+# End time: 19:31:10 on Dec 02,2019, Elapsed time: 0:27:28
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work work 
+# Modifying C:/qaz/projects/snn/sim/tests/tb_smallKronecker/tb_smallKronecker.mpf
+# INFO: compiling tb_packages rtl
+# INFO: compiling ../../../../qaz_libs/sim/libs/tb_packages_verilog/BFM.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:10 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/tb_packages_verilog/BFM.f 
+# -- Compiling package video_frame_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:31:10 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# INFO: compiling bfm_packages rtl
+# INFO: compiling ../../../../qaz_libs/sim/libs/bfm_packages_verilog/BFM.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:10 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/bfm_packages_verilog/BFM.f 
+# -- Compiling package tb_pkg
+# ** Warning: ..\..\..\..\qaz_libs\BFM\src\tb\random_delay.svh(48): (vlog-2186) SystemVerilog testbench feature
+# (randomization, coverage or assertion) detected in the design.
+# These features are only supported in Questasim.
+# ** Warning: ..\..\..\..\qaz_libs\BFM\src\tb\random_delay.svh(49): (vlog-2186) SystemVerilog testbench feature
+# (randomization, coverage or assertion) detected in the design.
+# These features are only supported in Questasim.
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:31:10 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# INFO: compiling axi4_lib rtl
+# INFO: compiling ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_base.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:10 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_base.f 
+# -- Compiling interface axi4_if
+# -- Compiling module axi4_s_to_read_fifos
+# -- Compiling module axi4_s_to_write_fifos
+# -- Compiling module axi4_m_to_read_fifos
+# -- Compiling module axi4_m_to_write_fifos
+# -- Compiling module axi4_register_slice
+# 
+# Top level modules:
+# 	axi4_m_to_read_fifos
+# 	axi4_m_to_write_fifos
+# 	axi4_register_slice
+# End time: 19:31:10 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# INFO: compiling ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_lite_base.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:11 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_lite_base.f 
+# -- Compiling interface axi4_lite_register_if
+# -- Compiling module axi4_lite_register_file
+# 
+# Top level modules:
+# 	axi4_lite_register_file
+# End time: 19:31:11 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# INFO: compiling ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_stream_base.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:11 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/axi4_lib_verilog/axi4_stream_base.f 
+# -- Compiling interface axis_if
+# -- Compiling module axis_register_slice
+# -- Compiling module axis_map_fifo
+# -- Compiling module axis_mux
+# -- Compiling module axis_alias
+# -- Compiling module axis_downsizer
+# -- Compiling module axis_upsizer
+# -- Compiling module axis_eop_set
+# -- Compiling module axis_eop_mux
+# -- Compiling module axis_catenate
+# -- Compiling module axis_switch
+# -- Compiling module axis_fanout
+# -- Compiling module recursive_axis_catenate
+# 
+# Top level modules:
+# 	axis_downsizer
+# 	axis_upsizer
+# 	axis_switch
+# 	axis_fanout
+# End time: 19:31:11 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# INFO: compiling qaz_lib rtl
+# INFO: compiling ../../../../qaz_libs/sim/libs/qaz_lib_verilog/basal.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:11 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/qaz_lib_verilog/basal.f 
+# -- Compiling module bc_sync_fifo
+# -- Compiling module sync_fifo
+# ** Warning: ../../../../qaz_libs/basal/src/FIFOs/sync_fifo.sv(57): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# ** Warning: ../../../../qaz_libs/basal/src/FIFOs/sync_fifo.sv(58): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# ** Warning: ../../../../qaz_libs/basal/src/FIFOs/sync_fifo.sv(59): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# ** Warning: ../../../../qaz_libs/basal/src/FIFOs/sync_fifo.sv(60): (vlog-2583) [SVCHK] - Some checking for conflicts with always_comb and always_latch variables not yet supported. Run vopt to provide additional design-level checks.
+# -- Compiling module tiny_sync_fifo
+# -- Compiling module one_hot_encoder
+# -- Compiling module recursive_mux
+# -- Compiling module sr_latch
+# -- Compiling module bram_tdp
+# -- Compiling module synchronizer
+# -- Compiling module sync_reset
+# 
+# Top level modules:
+# 	sync_fifo
+# 	sr_latch
+# 	bram_tdp
+# 	synchronizer
+# 	sync_reset
+# End time: 19:31:11 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 4
+# INFO: compiling sim rtl
+# INFO: compiling ../../../../qaz_libs/sim/libs/sim_verilog/BFM.f
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:11 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../../../qaz_libs/sim/libs/sim_verilog/BFM.f 
+# -- Compiling module tb_base
+# 
+# Top level modules:
+# 	tb_base
+# End time: 19:31:11 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 19:31:11 on Dec 02,2019
+# vlog -reportprogress 300 -f ../../libs/snn.f 
+# -- Compiling package snn_pkg
+# -- Compiling interface synapse_if
+# -- Compiling module synapse
+# -- Compiling package neuron_sv_unit
+# -- Importing package snn_pkg
+# -- Compiling module neuron
+# -- Compiling package neuron_block_sv_unit
+# -- Importing package snn_pkg
+# -- Compiling module neuron_block
+# -- Compiling package network_sv_unit
+# -- Importing package snn_pkg
+# -- Compiling module network
+# -- Compiling package project_top_sv_unit
+# -- Importing package snn_pkg
+# -- Compiling module project_top
+# -- Compiling module tb_top
+# 
+# Top level modules:
+# 	tb_top
+# End time: 19:31:11 on Dec 02,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -f ./sim.f work.tb_top 
+# Start time: 19:31:11 on Dec 02,2019
+# Loading sv_std.std
+# Loading work.snn_pkg
+# Loading work.tb_top
+# Loading work.tb_base
+# Loading work.axis_if
+# Loading work.project_top_sv_unit
+# Loading work.project_top
+# Loading work.network_sv_unit
+# Loading work.network
+# Loading work.neuron_block_sv_unit
+# Loading work.neuron_block
+# Loading work.recursive_axis_catenate
+# Loading work.axis_alias
+# Loading work.synapse_if
+# Loading work.synapse
+# Loading work.neuron_sv_unit
+# Loading work.neuron
+# Loading work.axis_catenate
+# Loading work.axis_eop_mux
+# Loading work.recursive_mux
+# Loading work.axis_mux
+# Loading work.axis_register_slice
+# Loading work.tiny_sync_fifo
+# Loading work.axis_map_fifo
+# Loading work.axis_eop_set
+# ================================================================================
+### do_test | block =           0 | neuron =           0 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   0|  33|   2|   2|   1|   1|   1|   2|   1|   1|   1|   3|   1|   2|   2|   1|   2|   1|   2|   1|   2|   1|   1|   1|   1|   1|   1|   1|   1|   2|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           1 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|  33|   0|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|  33|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           2 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   0|   2|   2|   1|   2|   2|   2|   2|   2|   3|   2|   2|   2|   2|   2|   2|   2|   1|   2|   2|   2|   1|   2|   1|   1|   2|   1|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           3 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   0|   2|   1|   1|   2|   2|   2|   2|   3|   2|   2|   2|   2|   2|   2|   2|   1|   2|   2|   2|   2|   1|   2|   2|   3|   2|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           4 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   0|   1|   2|   2|   2|   2|   1|   3|   2|   2|   2|   2|   2|   1|   2|   1|   1|   2|   2|   2|   1|   1|   2|   2|   1|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           5 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   1|   1|   0|   1|   2|   2|   2|   2|   3|   1|   2|   2|   1|   1|   2|   2|   1|   2|   2|   1|   1|   1|   2|   1|   2|   1|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           6 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   1|   2|   1|   0|   2|   2|   1|   1|   3|   2|   2|   2|   1|   2|   2|   2|   1|   2|   2|   1|   2|   2|   1|   1|   2|   1|   2|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           7 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   2|   2|   0|   2|   2|   2|   3|   3|   2|   2|   2|   1|   2|   2|   1|   2|   2|   1|   1|   2|   1|   2|   2|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           8 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   2|   2|   2|   0|   2|   2|   3|   2|   2|   2|   1|   2|   2|   2|   1|   2|   2|   1|   2|   2|   2|   1|   2|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =           9 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   2|   1|   2|   2|   0|   2|   3|   2|   2|   2|   2|   1|   1|   2|   1|   2|   2|   1|   2|   1|   1|   1|   2|   2|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          10 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   1|   2|   1|   2|   2|   2|   0|   3|   2|   2|   2|   1|   2|   1|   2|   1|   1|   2|   1|   2|   1|   2|   2|   2|   1|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          11 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   3|  33|   3|   3|   3|   3|   3|   3|   3|   3|   3|   0|   4|   3|   3|   2|   3|   3|   1|   2|   3|   3|   2|   3|   3|   3|   3|   3|   3|   3|   3|   3|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          12 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   1|   2|   3|   2|   2|   2|   4|   0|   3|   3|   2|   2|   2|   3|   2|   2|   2|   2|   2|   2|   2|   2|   2|   2|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          13 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   2|   2|   2|   2|   2|   2|   3|   3|   0|   2|   2|   2|   1|   2|   1|   2|   2|   1|   2|   1|   2|   2|   3|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          14 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   2|   2|   2|   2|   2|   2|   3|   3|   2|   0|   2|   2|   2|   2|   1|   2|   2|   2|   2|   2|   2|   2|   3|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          15 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   1|   1|   2|   1|   2|   1|   2|   2|   2|   2|   0|   1|   1|   1|   1|   2|   2|   1|   2|   1|   1|   1|   1|   1|   1|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          16 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   1|   2|   1|   2|   1|   2|   3|   2|   2|   2|   1|   0|   1|   2|   1|   2|   1|   2|   2|   2|   1|   2|   2|   2|   2|   2|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          17 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   1|   2|   2|   2|   2|   1|   1|   3|   2|   1|   2|   1|   1|   0|   2|   1|   1|   2|   2|   2|   1|   2|   2|   2|   1|   2|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          18 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   2|   2|   2|   2|   2|   2|   1|   3|   2|   2|   1|   2|   2|   0|   1|   2|   2|   1|   2|   2|   2|   2|   2|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          19 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   1|   1|   1|   1|   1|   1|   1|   1|   2|   2|   1|   1|   1|   1|   1|   1|   0|   1|   1|   1|   1|   1|   1|   1|   2|   1|   1|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          20 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   1|   2|   2|   2|   2|   2|   1|   3|   2|   2|   2|   2|   2|   1|   2|   1|   0|   2|   1|   2|   1|   2|   2|   3|   2|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          21 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   2|   2|   2|   2|   2|   2|   3|   2|   2|   2|   2|   1|   2|   2|   1|   2|   0|   2|   2|   2|   2|   2|   2|   2|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          22 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   1|   1|   1|   1|   1|   1|   2|   2|   1|   2|   1|   2|   2|   1|   1|   1|   2|   0|   1|   1|   1|   1|   2|   1|   2|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          23 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   2|   2|   1|   2|   1|   2|   2|   2|   3|   2|   2|   2|   2|   2|   2|   2|   1|   2|   2|   1|   0|   1|   2|   2|   1|   2|   2|   2|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          24 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   1|   1|   1|   2|   2|   2|   1|   1|   3|   2|   1|   2|   1|   2|   1|   2|   1|   1|   2|   1|   1|   0|   1|   2|   2|   1|   2|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          25 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   2|   1|   2|   1|   1|   2|   1|   2|   3|   2|   2|   2|   1|   1|   2|   2|   1|   2|   2|   1|   2|   1|   0|   2|   2|   2|   2|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          26 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   2|   2|   1|   1|   2|   1|   1|   2|   3|   2|   2|   2|   1|   2|   2|   2|   1|   2|   2|   1|   2|   2|   2|   0|   2|   2|   1|   1|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          27 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   3|   2|   2|   2|   2|   2|   2|   2|   3|   2|   3|   3|   1|   2|   2|   2|   2|   3|   2|   2|   1|   2|   2|   2|   0|   1|   2|   2|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          28 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   2|   1|   1|   1|   2|   2|   2|   1|   3|   2|   2|   2|   1|   2|   1|   2|   1|   2|   2|   1|   2|   1|   2|   2|   1|   0|   1|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          29 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   2|  33|   2|   2|   2|   2|   2|   2|   2|   2|   2|   3|   2|   2|   2|   1|   2|   2|   2|   1|   2|   2|   2|   2|   2|   2|   1|   2|   1|   0|   1|   2|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          30 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   1|   1|   1|   1|   1|   2|   2|   1|   1|   3|   1|   2|   2|   1|   2|   1|   2|   1|   1|   2|   1|   2|   1|   1|   1|   2|   1|   1|   0|   1|
+#### dump_results Done!!!
+# ================================================================================
+### do_test | block =           0 | neuron =          31 |
+# --------------------------------------------------------------------------------
+# [block]:| == neuron == n[0]| n[1]| ...| n[N]| ==================================
+# [   0] :|   1|  33|   2|   2|   2|   2|   1|   2|   2|   2|   2|   3|   2|   2|   2|   1|   1|   1|   2|   1|   2|   2|   1|   1|   1|   2|   1|   2|   2|   2|   1|   0|
+#### dump_results Done!!!
+#### Test Done!!!
+# ** Note: $stop    : ./tb_top.sv(123)
+#    Time: 28845 ns  Iteration: 1  Instance: /tb_top
+# Break in Module tb_top at ./tb_top.sv line 123
+# End time: 19:31:21 on Dec 02,2019, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 0

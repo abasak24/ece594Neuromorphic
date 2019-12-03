@@ -22,7 +22,7 @@ module network
   `include "snn_network.svh"
 
   // --------------------------------------------------------------------
-  axis_if #(.N(NN)) axis_in[T-1:0](.*);
+  axis_if #(.N(NN), .U(NU)) axis_in[T-1:0](.*);
   wire [N-1:0] spike_in[T-1:0];
 
   generate
@@ -38,7 +38,7 @@ module network
   // --------------------------------------------------------------------
   generate
     if(T > 1) begin : catenate
-      recursive_axis_catenate #(.N(NN), .MN(T)) catenate_i(.*);
+      recursive_axis_catenate #(.N(NN), .U(NU), .MN(T)) catenate_i(.*);
     end
     else begin : axis_alias
       axis_alias axis_alias_i(axis_in[0], axis_out);
