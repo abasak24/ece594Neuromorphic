@@ -6,6 +6,7 @@
 
 # ${PROJECT_DIR}/src/adder_tree.sv
 ${PROJECT_DIR}/src/synapse_if.sv
+${PROJECT_DIR}/src/synapse_delay.sv
 ${PROJECT_DIR}/src/synapse.sv
 ${PROJECT_DIR}/src/neuron.sv
 ${PROJECT_DIR}/src/neuron_block.sv

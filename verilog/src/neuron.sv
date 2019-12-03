@@ -88,8 +88,16 @@ module neuron #(S, neuron_config_t CFG)
       time_step_fall_r <= 1;
 
   // --------------------------------------------------------------------
+  wire [S-1:0] dendrite_spiked;
+
+  generate
+    for(genvar j = 0; j < S; j++)
+      assign dendrite_spiked[j] = dendrite[j].spiked;
+  endgenerate
+
+  // --------------------------------------------------------------------
   assign axis_out.tvalid = time_step_fall_r;
-  assign axis_out.tdata  = 0;
+  assign axis_out.tdata  = dendrite_spiked;
   assign axis_out.tlast  = 1;
   assign axis_out.tuser  = time_step_counter;
 

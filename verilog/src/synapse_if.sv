@@ -2,13 +2,21 @@
 //
 // --------------------------------------------------------------------
 
-interface synapse_if
+interface synapse_if #(WEIGHT=1)
 ( input clk
 , input reset
 );
   // --------------------------------------------------------------------
-  int weight = 1;
   wire spike;
+
+  // --------------------------------------------------------------------
+  reg spiked;
+
+  always_ff @(posedge clk)
+    if(reset)
+      spiked <= 0;
+    else if(spike)
+      spiked <= 1;
 
 // --------------------------------------------------------------------
 endinterface
