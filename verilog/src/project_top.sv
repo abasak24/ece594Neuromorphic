@@ -11,6 +11,7 @@ module project_top
 , input [$clog2(N)-1:0] force_spike_neuron_select
 , input time_step
 , input force_spike_en
+, output done
 , input clk
 , input reset
 );

@@ -42,5 +42,4 @@
 -voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[30]/n
 -voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/neuron[31]/n
 
--voptargs=+acc=npr+/tb_top/dut/network_i/block[0]/nb/catenate_i
 

@@ -11,8 +11,9 @@ module network
 , input [$clog2(N)-1:0] force_spike_neuron_select
 , input time_step
 , input force_spike_en
-, input  clk
-, input  reset
+, output reg done
+, input clk
+, input reset
 );
   // --------------------------------------------------------------------
   wire aclk = clk;
@@ -20,6 +21,15 @@ module network
 
   // --------------------------------------------------------------------
   `include "snn_network.svh"
+
+  // --------------------------------------------------------------------
+  wire [T-1:0] done_w;
+
+  always_ff @(posedge clk)
+    if(reset)
+      done <= 0;
+    else
+      done <= &done_w;
 
   // --------------------------------------------------------------------
   axis_if #(.N(NN), .U(NU)) axis_in[T-1:0](.*);
@@ -31,7 +41,7 @@ module network
       wire [N-1:0] spike_out;
       assign spike_in[j] = spike_out;
       neuron_block #(T, N, CFG, S[j])
-        nb(.axis_out(axis_in[j]), .force_spike_en(force_spike), .*);
+        nb(.axis_out(axis_in[j]), .force_spike_en(force_spike), .done(done_w[j]), .*);
     end
   endgenerate
 

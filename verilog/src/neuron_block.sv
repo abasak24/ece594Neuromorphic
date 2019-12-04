@@ -10,12 +10,22 @@ module neuron_block #(T, N, neuron_config_t CFG, int S[N])
 , input [$clog2(N)-1:0] force_spike_neuron_select
 , input time_step
 , input force_spike_en
+, output reg done
 , input clk
 , input reset
 );
   // --------------------------------------------------------------------
   wire aclk = clk;
   wire aresetn = ~reset;
+
+  // --------------------------------------------------------------------
+  wire [N-1:0] done_w;
+
+  always_ff @(posedge clk)
+    if(reset)
+      done <= 0;
+    else
+      done <= &done_w;
 
   // --------------------------------------------------------------------
   axis_if #(.N(NN), .U(NU)) axis_in[N-1:0](.*);
@@ -28,7 +38,8 @@ module neuron_block #(T, N, neuron_config_t CFG, int S[N])
       wire spike;
       wire force_spike = force_spike_en & (force_spike_neuron_select == j);
 
-      neuron #(S[j], CFG) n(.axis_out(axis_in[j]), .dendrite(syn_if), .*);
+      neuron #(S[j], CFG)
+        n(.axis_out(axis_in[j]), .dendrite(syn_if), .done(done_w[j]), .*);
 
       assign spike_out[j] = spike;
     end

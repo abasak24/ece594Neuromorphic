@@ -9,6 +9,7 @@ module neuron #(S, neuron_config_t CFG)
 , output reg spike
 , input time_step
 , input force_spike
+, output done
 , input clk
 , input reset
 );
@@ -91,8 +92,17 @@ module neuron #(S, neuron_config_t CFG)
   wire [S-1:0] dendrite_spiked;
 
   generate
-    for(genvar j = 0; j < S; j++)
-      assign dendrite_spiked[j] = dendrite[j].spiked;
+    for(genvar j = 0; j < S; j++) begin : memory
+      reg spiked;
+
+      always_ff @(posedge clk)
+        if(reset)
+          spiked <= 0;
+        else if(spike_w & ~spike_fired_r)
+          spiked <= dendrite[j].spike;
+
+      assign dendrite_spiked[j] = spiked;
+  end
   endgenerate
 
   // --------------------------------------------------------------------
@@ -100,6 +110,7 @@ module neuron #(S, neuron_config_t CFG)
   assign axis_out.tdata  = dendrite_spiked;
   assign axis_out.tlast  = 1;
   assign axis_out.tuser  = time_step_counter;
+  assign done = spike_fired;
 
 // --------------------------------------------------------------------
 endmodule
