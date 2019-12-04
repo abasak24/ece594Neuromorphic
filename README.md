@@ -2,11 +2,11 @@
 Graph Processing on Neuromorphic Hardware
 
 ## Instructions on Datasets
-* We used three datasets for our evaluation located in "datasets" folder. Please use the .txt files with eights included.
+* We used three datasets for our evaluation located in "datasets" folder. Please use the .txt files with weights included.
 
 ## Instructions to run the software simulaton
 * python src/SSSPWithPath.py ../datasets/smallKroneckerWeighted.txt 32
-* Specify the path to datasets 
+* Specify the path to dataset 
 * Specify the total number of nodes in the graph 
 
 ## Final Project Report and Slides (Due Dec 4)
