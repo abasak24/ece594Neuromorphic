@@ -1,7 +1,15 @@
 # ece594Neuromorphic
 Graph Processing on Neuromorphic Hardware
 
-## Final Project Report and Slides (Due Dec 3)
+## Instructions on Datasets
+* We used three datasets for our evaluation located in "datasets" folder. Please use the .txt files with weights included.
+
+## Instructions to run the software simulaton
+* python src/SSSPWithPath.py ../datasets/smallKroneckerWeighted.txt 32
+* Specify the path to dataset 
+* Specify the total number of nodes in the graph 
+
+## Final Project Report and Slides (Due Dec 4)
 * Report -> Abanti created overleaf with editable link: https://www.overleaf.com/4985316468bznhwzwftyjk
 * Slides -> Abanti created Google slides and sent invitations to team mates. 
 
