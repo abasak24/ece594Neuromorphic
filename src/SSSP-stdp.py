@@ -90,7 +90,7 @@ print S.delay
 s_mon = SpikeMonitor(P)
 run(alpha) 
 S.w['w<1'] = 0
-
+S.w['w>=2'] = 0 #happens when two connected neurons fire at same time
 shortestpathedges=[]
 for i in range(numNodes):
     for j in range(numNodes):
